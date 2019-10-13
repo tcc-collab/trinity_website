@@ -76,6 +76,9 @@ body {
 
 .eventtitle {
   padding: 10px 0px 5px 10px;
+  color: #000000;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 .withtitle p {
@@ -86,9 +89,6 @@ body {
 
 .eventtitle a{
   text-decoration: none;
-  color: #000000;
-  font-weight: bold;
-  text-transform: capitalize;
 }
 /* Events end */
 

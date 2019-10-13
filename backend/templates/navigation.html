@@ -12,15 +12,35 @@
 
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{{nav[0].link}}">{{nav[0].name}}</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{nav[1].keys()[0]}}<span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Photo Gallery</a></li>
-                <li><a href="#">Video Gallery</a></li>
-              </ul>
+            {% for nav_item in main_navs %}
+              {% if nav_item.name == "Home" %}
+                <li class="active">
+              {% else %}
+                <li>
+              {%endif%}
+                  <a href="{{nav_item.link}}">
+                    {{nav_item.name}}
+                  </a>
+                </li>
+            {% endfor %}
+             
+            {% for nav_name, nav_items in nested_navs.items() %}
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                  {{nav_name}}
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  {% for item in nav_items %}
+                  <li><a href="{{item.link}}" target="_blank">{{item.name}}</a></li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endfor %}
+
+            </li>
+          </ul>
         </div>
 
       </div>
     </nav>
-

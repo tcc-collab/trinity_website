@@ -30,7 +30,6 @@ def get_side_nav_menu(html_soup):
         menu_dict = {"name": name, "link": full_link, "image": image}
         side_menus.append(menu_dict)
 
-    print(side_menus)
     return side_menus
 
 
@@ -56,11 +55,12 @@ def get_main_nav_menu(html_soup):
         link = a_tag.attrs.get("href").strip()
         if link == "#":
             menu_rel = a_tag.attrs.get("rel")[0]
-            name, link = __extract_dropdowns(html_soup, menu_rel)
-
-        full_link = f"{html_soup.url}/{link.strip()}"
-        menu_dict = {"name": name, "link": full_link}
-        all_menu.append(menu_dict)
+            all_sub_menus = __extract_dropdowns(html_soup, menu_rel)
+            all_menu += all_sub_menus
+        else:
+            full_link = f"{html_soup.url}/{link.strip()}"
+            menu_dict = {"name": name, "link": full_link}
+            all_menu.append(menu_dict)
 
     return all_menu
 
@@ -68,7 +68,12 @@ def get_main_nav_menu(html_soup):
 def __extract_dropdowns(html_soup, menu):
     css_selector = f"div#{menu}"
     menu_div = html_soup.find(css_selector, first=True)
-    a_tag = menu_div.find("a", first=True)
-    name = a_tag.text[2:]
-    link = a_tag.attrs.get("href")
-    return name, link
+    a_tags = menu_div.find("a")
+    sub_menus = []
+    for a_tag in a_tags:
+        name = a_tag.text[2:]
+        link = a_tag.attrs.get("href")
+        sub_menu_dict = {"name": name, "link": html_soup.url + "/" + link}
+        sub_menus.append(sub_menu_dict)
+
+    return sub_menus

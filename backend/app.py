@@ -13,12 +13,19 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def event():
+def home():
     html = get_html(cache=True)
     top_notice = get_top_notice(html)
     top_events = get_top_event(html)
     top_news = get_top_news(html)
+    main_navs, nested_navs = get_navbar(html)
 
     top_items = {"Notice": top_notice, "News": top_news, "Events": top_events}
     footer = get_footer()
-    return render_template("home.html", top_items=top_items, footer=footer)
+    return render_template(
+        "home.html",
+        top_items=top_items,
+        footer=footer,
+        nested_navs=nested_navs,
+        main_navs=main_navs,
+    )
