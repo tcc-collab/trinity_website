@@ -1,0 +1,94 @@
+.main-panel a{
+  text-decoration: none;
+  color:black;
+}
+
+.panel-heading {
+  background-color:rgb(51, 189, 49) !important;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body {
+  flex: 1;
+}
+
+#footer,
+#copyright,
+#follow,
+#social,
+#social a,
+#legal{
+  margin: 10px;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 30px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
+
+/* Changes for events only */
+
+.withdate {
+  float: left;
+  border-right: 1px solid #EBB700;
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.engname {
+  font-size: 11px;
+  text-align: center;
+  font-weight: bold;
+  padding: 0px 10px;
+  color: #000000;
+}
+
+.date {
+  font-size: 13px;
+  text-align: center;
+  color: #000000;
+}
+
+.nepname {
+  background: #970707;
+  color: #fff;
+  width: 70px;
+  text-align: center;
+  font-size: 11px;
+}
+
+.withtitle {
+  float: left;
+  width: 60%;
+  overflow: hidden;
+  margin-left: 5px;
+}
+
+.eventtitle {
+  padding: 10px 0px 5px 10px;
+}
+
+.withtitle p {
+  color: #000000;
+  padding: 0px 10px;
+  color: #b20000;
+}
+
+.eventtitle a{
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+/* Events end */
+

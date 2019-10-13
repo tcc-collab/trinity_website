@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+{%block content%}
+
+    {% for key, top_list in top_items.items() %}
+      <div class="panel panel-default">
+        <div class="notice panel-heading main-panel">
+          <a>{{key}}</a>
+        </div>
+        {% for item in top_list %}
+          {%if key != "Events" %}
+            <div class="panel-body">
+              <a href='{{item.full_link}}' target='_blank'>{{item.title}}</a>
+            </div>
+
+          {% else %}
+            <div class="panel-body">
+
+              <div class="withdate">
+                <div class="engname">
+                  {{item.english_date[-3:]}}
+                </div>
+                <div class="date"> {{item.english_date[:2]}}</div>
+                <div class="nepname">{{item.nepali_date}}</div>
+              </div>
+
+	            <div class="withtitle">
+                <div class="eventtitle">
+
+                  {% if item.link %}
+                  <a href="{{item.link}}" target="_blank">
+                    {{ item.title }}
+                  </a>
+                  {% else %}
+                    {{ item.title }}
+                  {% endif %}
+
+                </div>
+                <p>
+                {{ item.subtitle }}
+                </p>
+                {% if item.description %}
+		              <div class="description">
+                    {{ item.description }}
+                  </div>
+                {% endif %}
+	            </div>
+
+            </div>
+          {%endif%}
+        {% endfor %}
+      </div>
+    {% endfor %}
+
+{%endblock%}
+
+

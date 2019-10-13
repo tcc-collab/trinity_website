@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {% if title %}
+      <title>{{ title }}</title>
+    {% else %}
+      <title>Trinity Website</title>
+    {% endif %}
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+ </head>
+
+  <body>
+
+    <div class="container">
+      {% block content %}
+
+      {% endblock content %}
+    </div>
+
+
+  {% include 'footer.html' %}
+
+
+   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+   <script src="{{url_for('static',filename='scripts/jquery.min.js')}}"></script>
+   <script src="{{url_for('static',filename='scripts/bootstrap.min.js')}}"></script>
+  </body>
+</html>

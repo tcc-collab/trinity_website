@@ -1,0 +1,621 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>Welcome to Trinity International College</title>
+<link href="design/main.css" rel="stylesheet" type="text/css" />
+<link href="css/marginPadding.css" rel="stylesheet" type="text/css" />
+<!--  <script webapi="http://code.jquery.com/jquery-1.6.4.js"></script> -->
+ <script webapi="jquery-1.6.4.js"></script>
+<script>
+$(document).ready(function(){
+$('.menuu').live("mouseover",function(){
+//alert('123');
+	$(".newclass").css('z-index','-99999999999999999');
+	
+})
+$('.subfolderstyle').live("mouseout",function(){
+	$(".newclass").css('z-index','99999999999999999');
+	
+})
+})
+
+</script>
+<LINK REL="SHORTCUT ICON" HREF="favicon2.ico" />
+<style type="text/css">
+<!--
+#apDiv1 {
+	position:absolute;
+	left:886px;
+	top:698px;
+	width:131px;
+	height:20px;
+	z-index:1;
+}
+-->
+</style>
+<style type="text/css">
+ #mySlideShow
+{
+width: 250px ;
+height: 146px ;
+z-index:100;
+
+}
+
+.social {
+  list-style:none;
+  padding:0;
+}
+
+span.fb {
+  background:#3352C3;
+}
+span.tw {
+  background:#24ABD7;
+}
+span.gp {
+  background:#E13D0B;
+}
+
+</style>
+<script webapi="javascripts/chrome.js" type="text/javascript"></script>
+<script webapi="https://use.fontawesome.com/a957e553dc.js"></script>
+<link rel="stylesheet" type="text/css" href="design/chromestyle.css" />
+
+
+<script webapi="javascripts/meteora.js" type="text/javascript"></script>
+<script type="text/javascript">
+  Meteora.uses('Control.Picbox');
+</script>
+
+<!--<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18693819-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.webapi = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>-->
+
+<script type="text/javascript">
+function getHttpRequest(){
+	
+	try{
+  		// Firefox, Opera 8.0+, Safari
+  		xmlHttp=new XMLHttpRequest();
+  	}catch (e){
+	  	// Internet Explorer
+  		try{
+		    xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+    	}catch (e){
+    		try{
+				xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+      		}catch (e){
+			      alert("Your browser does not support AJAX!");
+      			  return false;
+      		}
+    	}
+  	}
+	return xmlHttp;
+	
+}
+
+function showresult(){		
+		xmlHttp = getHttpRequest();
+		outval = document.getElementById("sadmit_cardno").value;
+		//alert(outval);
+		xmlHttp.onreadystatechange=function(){
+			if(xmlHttp.readyState==4){			
+				result=xmlHttp.responseText;
+				document.getElementById("show_stresult").innerHTML = result;
+			}
+		}
+		xmlHttp.open("GET","trinity_rSearch.php?outval="+outval+"",true);
+		xmlHttp.send(null);
+}
+
+function check(){
+  	var contact = document.admitrs.sadmit_cardno.value;
+  	if(contact == 'Enter Admit Card No'){
+		alert("Please Enter your Admit Card No.!");
+		document.admitrs.sadmit_cardno.focus();
+		return false;
+	}
+  }
+  </script>
+
+<script type="text/javascript"> 
+//<script type="text/javascript"> window.onload = function() { var div = document.createElement('div'); div.innerHTML = ''; document.body.appendChild(div.firstChild); };
+function createPopUp(popUpCode) { var div = document.createElement('div'); div.innerHTML = popUpCode; document.body.appendChild(div.firstChild); }
+ </script>
+ </script>
+<style>
+.popUp { color:#FFFFFF;  margin-top:5px;font-size:12px;text-align: center;  border: 1px solid #FFA600; background-color:#023F40; }
+.style49 {color: #000000}
+</style>
+<script type="text/javascript">
+ //var _gaq = _gaq || [];
+ // _gaq.push(['_setAccount', 'UA-32858674-1']);
+ // _gaq.push(['_trackPageview']);
+
+ // (function() {
+ //   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  //  ga.webapi = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   // var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+ // })();
+</script>
+<script>
+function pop1(){
+	
+	document.getElementById('pop1').style.display='block';
+	
+	
+	
+	}
+function getclose(){
+	
+	document.getElementById('pop1').style.display='none';
+	}
+
+</script>
+</head>
+<body onload="pop1()"> 
+<!-- <body> -->
+
+<div id="Container">
+
+<a name="top"></a>
+<!-- header start -->
+	<div id="header">
+	    <!--<div style="width:320px; float:right; margin:0px; margin-top:10px; padding:0px;">
+        <span style="color:#FFFFFF; margin-top:0px;font-size:12px; ">
+        <p style="text-align:center;">Entrance Exam result published!</p>  
+        <form name="admitrs" method="post" action="index.php" onsubmit="return check()"> Search Result
+        <input type="text" name="sadmit_cardno" id="sadmit_cardno" style="width:130px; color:#FFA600;"
+        class="hint" value="Enter Admit Card No" 
+  onfocus="if (this.className=='hint') { this.className = ''; this.value = ''; }"
+  onblur="if (this.value == '') { this.className = 'hint'; this.value = 'Enter Admit Card No'; }" /><input type="submit" name="rs_submit" style="color:#B20000; font-weight:bold; cursor:pointer;" value="GO" 
+        onclick='createPopUp(document.getElementById("popUpCode").value)' />
+        </form></span>
+        
+
+        <div id="show_stresult" style="color:#FFFFFF; padding-left:50px; margin-top:5px;font-size:12px;"></div></div>-->
+		<a href="https://trinitycollege.edu.np">
+    	<div id="logo">			
+			<span style="color:#b20000; padding-left:170px; font-size:24px; font-weight:bold;">TRINITY </span><br />
+			<span style="color:#b20000; padding-left:250px; font-size:24px; font-weight:bold;">INTERNATIONAL</span><br />
+			<span style="color:#b20000; padding-left:400px; font-size:24px; font-weight:bold;">COLLEGE</span>
+		</div>
+       </a>
+         <div id="topNova">
+         <div style="float:left" class="chromestyle" id="chromemenu">
+    	<ul>
+          <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'#B20000','#ffffff')"><a href="index.php" >Home</a> </li>
+          <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'#B20000','#ffffff')"><a href="#" rel="about_trinity">About Trinity</a></li>
+          <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'#B20000','#ffffff')"><a href="#" rel="academic_programs">Academic Programs</a></li>
+          <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'#B20000','#ffffff')"><a href="#" rel="trinity_people">Trinity People</a></li>
+          <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'#B20000','#ffffff')"><a href="#" rel="messages">Messages</a></li>
+
+<!--          <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'#B20000','#ffffff')"><a href="index.php?page=sitemapindex.php?page=admissionpage_u">Site Map</a></li>
+ -->		 <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'#B20000','#ffffff')"><a href="index.php?page=content&id=119&p=add">Admission Info</a></li>
+           <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'#B20000','#ffffff')"><a href="#" rel="studentv">Student Views</a></li>
+           <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'#B20000','#ffffff')"><a href="index.php?page=trinityalumni">Alumni</a></li>
+           <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'#B20000','#ffffff')"><a href="index.php?page=contactus">&nbsp;Contact Us</a></li>
+        </ul>
+        </div>
+       
+         <div id="about_trinity" class="dropmenudiv">
+         	<a href="index.php?page=content&amp;id=40">&raquo; Introduction</a><a href="index.php?page=content&amp;id=143">&raquo; Vision, Mission & Values</a><a href="index.php?page=content&amp;id=144">&raquo; Timeline</a><a href="index.php?page=content&amp;id=145">&raquo; Facts & Figures</a>            
+        </div>
+        <div id="academic_programs" class="dropmenudiv">
+         	<a href="index.php?page=content&amp;id=43">&raquo; +2 (NEB)</a><a href="index.php?page=content&amp;id=44">&raquo; GCE A Levels </a><a href="index.php?page=content&amp;id=46">&raquo; BBS (TU)</a><a href="index.php?page=content&amp;id=105">&raquo; BA/BASW(TU)</a><a href="index.php?page=content&amp;id=115">&raquo; BSc CSIT (TU)</a><a href="index.php?page=content&amp;id=146">&raquo; BBM (TU)</a><a href="index.php?page=content&amp;id=147">&raquo; BCA (TU)</a>            
+        </div>
+        <div id="trinity_people" class="dropmenudiv">
+         	<a href="index.php?page=content&amp;id=47">&raquo; TRINITY Advisory Board</a><a href="index.php?page=content&amp;id=48">&raquo; TRINITY Team</a><a href="index.php?page=content&amp;id=49">&raquo; Teaching Faculty</a><a href="index.php?page=content&amp;id=50">&raquo; Staff</a>            
+        </div>
+        <div id="messages" class="dropmenudiv">
+         	<a href="index.php?page=content&amp;id=51">&raquo; CEO's  Message</a><a href="index.php?page=content&amp;id=52">&raquo; Principal's Message</a>            
+        </div>
+        <div id="studentv" class="dropmenudiv">
+         	<a href="index.php?page=content&amp;id=148">&raquo; Student Views</a><a href="index.php?page=content&amp;id=149">&raquo; Student Voice</a>            
+        </div>
+        <div style="float:right; margin:6px 0px 0px 0px; color:#FFFFFF">
+       	 <!--  <form action="http://trinitycollege.edu.np/result.php" id="cse-search-box">
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="1"><input type="text" name="q"  style="border:1px solid #FF9900;float:left; margin:0px; padding:0px; height:13px; width:120px; margin-right:5px; font-size:10px; color:#999999;"/></td>
+                <td width="25" align="right"><input type="image" webapi="images/4.png" name="sa"  value="Go"  style=" cursor:pointer; border:0px solid #ffcc00;" /></td>
+              </tr>
+            </table>
+
+           	<input type="hidden" name="cx" value="partner-pub-8395543998616697:idkwtwmqm56" />
+                <input type="hidden" name="cof" value="FORID:9" />
+                <input type="hidden" name="ie" value="UTF-8" />
+                
+                
+          </form> -->
+          <!-- <script type="text/javascript" webapi="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>-->
+        </div>
+    </div>
+  </div>
+<!-- header end -->
+<!--mainbody start-->
+<div id="mainbody">
+
+	<div id="leftnoav">
+    	<style type="text/css">
+/*Credits: Dynamic Drive CSS Library */
+/*URL: http://www.dynamicdrive.com/style/ */
+
+.suckerdiv ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	width: 170px; /* Width of Menu Items */
+}
+.suckerdiv ul li {
+	position: relative;
+}
+/*Sub level menu items */
+.suckerdiv ul li ul {
+	position: absolute;
+	top: 0;
+	background-color:#FFFFFF;
+	visibility: hidden;
+	border:1px solid #FFCC33;
+	width:200px;
+}
+/* Sub level menu links style */
+.suckerdiv ul li a {
+	display: block;
+	overflow: auto; /*force hasLayout in IE7 */
+	text-decoration: none;
+	border-bottom: 0;
+}
+.suckerdiv ul li a:visited {
+}
+.suckerdiv ul li a:hover {
+}
+.suckerdiv .subfolderstyle {
+	background: url(menu/arrow.gif) no-repeat right;
+}
+/* Holly Hack for IE \*/
+* html .suckerdiv ul li {
+	float: left;
+	height: 1%;
+}
+* html .suckerdiv ul li a {
+	height: 1%;
+}
+/* End */
+</style>
+<script type="text/javascript">
+
+//SuckerTree Vertical Menu 1.1 (Nov 8th, 06)
+//By Dynamic Drive: http://www.dynamicdrive.com/style/
+
+var menuids=["suckertree1"] //Enter id(s) of SuckerTree UL menus, separated by commas
+
+function buildsubmenus(){
+for (var i=0; i<menuids.length; i++){
+  var ultags=document.getElementById(menuids[i]).getElementsByTagName("ul")
+    for (var t=0; t<ultags.length; t++){
+    ultags[t].parentNode.getElementsByTagName("a")[0].className="subfolderstyle"
+		if (ultags[t].parentNode.parentNode.id==menuids[i]) //if this is a first level submenu
+			ultags[t].style.left=ultags[t].parentNode.offsetWidth+"px" //dynamically position first level submenus to be width of main menu item
+		else //else if this is a sub level submenu (ul)
+		  ultags[t].style.left=ultags[t-1].getElementsByTagName("a")[0].offsetWidth+"px" //position menu to the right of menu item that activated it
+    ultags[t].parentNode.onmouseover=function(){
+    this.getElementsByTagName("ul")[0].style.display="block"
+    }
+    ultags[t].parentNode.onmouseout=function(){
+    this.getElementsByTagName("ul")[0].style.display="none"
+    }
+    }
+		for (var t=ultags.length-1; t>-1; t--){ //loop through all sub menus again, and use "display:none" to hide menus (to prevent possible page scrollbars
+		ultags[t].style.visibility="visible"
+		ultags[t].style.display="none"
+		
+		}
+  }
+}
+
+if (window.addEventListener)
+window.addEventListener("load", buildsubmenus, false)
+else if (window.attachEvent)
+window.attachEvent("onload", buildsubmenus)
+
+</script>
+<div id="top_round">NAVIGATION</div>
+<div id="menu_left" class="suckerdiv" style="width:172px; float:left;">
+  <ul id="suckertree1" >
+    <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu"><a href="index.php">
+	<img webapi="images/house_go.png" border="0" width="12"/>&nbsp;Home</a></li>
+    <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu">
+    <a href="index.php?page=content&id=119&p=add"><img webapi="images/transmit_go.png" border="0" width="12" />&nbsp;Admissions</a></li>
+	
+        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu"><a href="index.php?page=content&id=53"><img webapi="images/transmit_go.png" border="0" width="12" />&nbsp;Facilities</a></li>
+        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu"><a href="javascript:void(0)"><img webapi="images/transmit_go.png" border="0" width="12" />&nbsp;Academic Programs</a>
+      <ul>
+                <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu"><a href="index.php?page=content&id=43"><img webapi="images/lightbulb.png" border="0" width="12" />&nbsp;+2 (NEB)</a></li>
+        1        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=content&id=44"><img webapi="images/lightbulb.png" border="0" width="12"/>&nbsp;GCE A Levels </a></li>
+        1        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=content&id=46"><img webapi="images/lightbulb.png" border="0" width="12"/>&nbsp;BBS (TU)</a></li>
+        1        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=content&id=105"><img webapi="images/lightbulb.png" border="0" width="12"/>&nbsp;BA/BASW(TU)</a></li>
+        1        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=content&id=115"><img webapi="images/lightbulb.png" border="0" width="12"/>&nbsp;BSc CSIT (TU)</a></li>
+        1        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=content&id=146"><img webapi="images/lightbulb.png" border="0" width="12"/>&nbsp;BBM (TU)</a></li>
+        1        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=content&id=147"><img webapi="images/lightbulb.png" border="0" width="12"/>&nbsp;BCA (TU)</a></li>
+              </ul>
+    </li>
+        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu"><a href="index.php?page=content&id=45"><img webapi="images/transmit_go.png" border="0" width="12" />&nbsp;Distinctive Features</a></li>
+        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu"><a href="javascript:void(0)"><img webapi="images/transmit_go.png" border="0" width="12" />&nbsp;Faculty & Staff</a>
+      <ul>
+                <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu"><a href="index.php?page=content&id=47"><img webapi="images/lightbulb.png" border="0" width="12" />&nbsp;TRINITY Advisory Board</a></li>
+        1        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=content&id=48"><img webapi="images/lightbulb.png" border="0" width="12"/>&nbsp;TRINITY Team</a></li>
+        1        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=content&id=49"><img webapi="images/lightbulb.png" border="0" width="12"/>&nbsp;Teaching Faculty</a></li>
+        1        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=content&id=50"><img webapi="images/lightbulb.png" border="0" width="12"/>&nbsp;Staff</a></li>
+              </ul>
+    </li>
+        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu"><a href="javascript:void(0)"><img webapi="images/transmit_go.png" border="0" width="12" />&nbsp;FAQs</a>
+      <ul>
+                <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu"><a href="index.php?page=content&id=62"><img webapi="images/lightbulb.png" border="0" width="12" />&nbsp;+2 (NEB)</a></li>
+        1        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=content&id=63"><img webapi="images/lightbulb.png" border="0" width="12"/>&nbsp;GCE A Levels </a></li>
+        1        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=content&id=94"><img webapi="images/lightbulb.png" border="0" width="12"/>&nbsp;TRINITY</a></li>
+              </ul>
+    </li>
+    	 <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu">
+    <a href="index.php?page=publication"><img webapi="images/transmit_go.png" border="0" width="12" />&nbsp;Publications</a></li>
+    <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="#"><img webapi="images/page_edit.png" border="0" width="12"/>&nbsp;Notice/News/Events</a>
+      <ul>
+        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=news&type=notice"><img webapi="images/report.png" border="0" width="12"/>&nbsp;Trinity Notice</a></li>
+        <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=news&type=news"><img webapi="images/page_edit.png" border="0" width="12"/>&nbsp;Trinity News/Events</a></li>
+      </ul>
+    </li>
+    <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=picgallery"><img webapi="images/report_user.png" border="0" width="12"/>&nbsp;Photo Gallery</a></li>
+    <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=videogallery"><img webapi="images/film_go.png" border="0" width="12"/>&nbsp;Video Gallery</a> </li>
+    <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=academic_cal"><img webapi="images/calendar.png" border="0" width="12"/>&nbsp;Academic Calendar</a>
+      <ul>
+                <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=academic_cal&cal_for=1"><img webapi="images/calendar.png" border="0" width="12"/>&nbsp;SCIENCE</a> </li>
+                <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=academic_cal&cal_for=2"><img webapi="images/calendar.png" border="0" width="12"/>&nbsp;MANAGEMENT</a> </li>
+                <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=academic_cal&cal_for=3"><img webapi="images/calendar.png" border="0" width="12"/>&nbsp;HUMANITIES</a> </li>
+                <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=academic_cal&cal_for=6"><img webapi="images/calendar.png" border="0" width="12"/>&nbsp;GCE A LEVEL</a> </li>
+                <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=academic_cal&cal_for=7"><img webapi="images/calendar.png" border="0" width="12"/>&nbsp;NON-SCIENCE</a> </li>
+                <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')"><a href="index.php?page=academic_cal&cal_for=8"><img webapi="images/calendar.png" border="0" width="12"/>&nbsp;BBS I</a> </li>
+                <li onmouseover="changeColor(this,'#ffa600','#000000')" onmouseout="changeColor(this,'','#ffffff')" class="menuu"><a href="index.php?page=academic_cal">
+		<img webapi="images/calendar.png" border="0" width="12"/>&nbsp;View Calendars For All</a> </li>
+      </ul>
+    </li>
+      </ul>
+</div>
+<div id="round_bottom"></div>
+<style>
+#top_round1 {
+    background-color:#fead16 !important;
+    background-repeat: no-repeat !important;
+    border-bottom: 1px solid #FCB731 !important;
+    float: left !important;
+    font-family: Arial,Helvetica,sans-serif !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    height: 23px !important;
+    letter-spacing: 2px !important;
+    padding-top: 10px !important;
+    text-align: center !important;
+    width: 172px !important;
+	border-radius:3px !important;
+	
+}
+</style>
+<!-- <p align="center"><a href="documents/Scresult.pdf" target="_blank">HSEB 2% Scholarship Results</a></p><br /> -->
+<!-- //Dashain Homework -->
+<!-- <a href="index.php?page=hw"><img webapi="images/hw2014.png" border="0"  width="170px"></a> <br><br> -->
+<!-- <p align="center"><a href="documents/Scholarship075.pdf" target = "_blank">Talent Scholarships 2018-20</a></p><br> -->
+<!-- <p align="center"><a href= "documents/NEB2076.pdf " target="_blank"><img webapi="images/neb.png" border="0"  width="170px"></a></p><br /> -->
+<!-- <a href="index.php?page=hw"><img webapi="images/hw2017.png" border="0"  width="180px"></a><!-- Dashain Homework 2072 --> 
+<!-- <p align="center"><a href= "documents/June2019.pdf " target="_blank">CAIE Exam Center June 2019</a></p> -->
+<!-- <p align="center"><a href= "http://trinitycollege.edu.np/index.php?page=sampleq&cat=11&p=add" target="_blank"><img webapi = "images/book.png" height="56" width="170"></a></p><br /> -->
+<!-- <a href="http://173.254.52.79/entrance" target="_blank"><img webapi="images/mgmtentrance.png" width ="170" border="0"></a> -->
+<!-- <a href="http://173.254.52.79/Student" target="_blank"><img webapi="images/Section1.png" border="0" width="170px"></a><br> -->
+<!-- <a href="http://50.87.4.111/entrance"><img webapi="images/ent2018.png" width="170" border="0"></a><br> -->
+<!-- <a href="index.php?page=admission"><img webapi="images/admission.gif" height ="91"style="margin-left:8px; margin-top:-14px;" border="0"></a> -->
+<!-- <a href="http://50.87.4.111/entrance"><img webapi="images/mgmtentrance.png" width="170" border="0"></a><br> -->
+<!-- <img webapi="images/alevel_admission.gif" style="margin-left:8px; margin-top:10px;" border="0"></a> <br />  -->
+<!-- <p align="center"><a href= "http://trinitycollege.edu.np/index.php?page=sampleq&cat=11&p=add" target="_blank"><img webapi = "images/book.png" height="56" width="170"></a></p><br /> -->
+<!-- <a href="http://173.254.52.79/entrance/" target="_blank"><img webapi="images/ent2018.png" border="0" width="170px"></a> -->
+<!-- <a href="http://173.254.52.79/esplan/" target="_blank"><img webapi="images/splan2019.png" border="0" width="170px"></a><br> -->
+<!-- <p align="center"><a href= "documents/Scitech2019.pdf" target="_blank"><img webapi = "images/scitech.png" height="56" width="170"></a></p><br /> -->
+<!-- <div style="clear:both; margin-bottom:10px;"></div> -->
+ <!-- <p align="center"><a href= "documents/CAIE2018.pdf">CAIE Timetable October/November 2018</a></p> -->
+ <p align="center"><a href= "documents/timetable2019.pdf">CAIE Exam Center November 2019 Session</a></p>
+ <!-- <a href="index.php?page=admission"><img webapi="images/alevel_admission.gif" style="margin-left:8px; margin-top:10px;" border="0"></a> <br /> -->
+ <!-- <p align="center"><a href= "documents/NEBPractical2075.pdf" target="_blank"><img webapi = "images/practical.png" height="56" width="170"></a></p><br /> -->
+ <!-- <p align="center"><a href= "documents/SUCHANA2076.pdf" target="_blank"><img webapi = "images/schnotice.png" height="56" width="170"></a></p><br />  -->
+ <!-- <a href="index.php?page=admission"><img webapi="images/alevel_admission.gif" style="margin-left:8px; margin-top:10px;" border="0"> -->
+<div style="clear:both; margin-bottom:10px;"></div>
+
+ <div id="top_round">NOTICE</div>
+<div id="menu_left" 
+class="suckerdiv" style="width:172px; float:left;"><div style=" width:100%;background-color:; text-align:center;padding:2px 0 2px 0; margin-bottom:2px; height:100px !important">
+<p style="color:#fead16;"></p>
+                           
+                        <div class="notic_text" style="color:#8C261A; font-size:11px; width:161px !important; padding-left:5px !important">
+						<a href="?page=news&type=notice&id=582" target="_blank">
+						Dashain-Tihar Vacation						
+						
+						</a></div>								
+                                                
+                        <div class="notic_text" style="color:#8C261A; font-size:11px; width:161px !important; padding-left:5px !important">
+						<a href="?page=news&type=notice&id=581" target="_blank">
+						Constitution Day						
+						
+						</a></div>								
+                                                
+                        <div class="notic_text" style="color:#8C261A; font-size:11px; width:161px !important; padding-left:5px !important">
+						<a href="?page=news&type=notice&id=580" target="_blank">
+						First Term Exam 2076						
+						
+						</a></div>								
+                      
+					 
+					 <p style="float:right ; margin-right:5px !important"><a href="?page=news&type=notice" style=" color: #B0060E;
+    text-align: right;
+    text-decoration: none;"> more &raquo; </a></p>
+					 
+					 </div> 
+					 
+	</div>
+	
+	<div id="round_bottom"></div>
+
+	
+<!-- <a href="index.php?page=admission"><img webapi="images/admission.gif" style="margin-left:8px; margin-top:0px;" border="0"></a> -->
+	<br>
+	<!-- <a href="http://result.trinitycollege.edu.np/entrance"><img webapi="images/+2result.jpg" style="margin-left:0px; margin-top:10px; width:180px" border="0"></a>-->
+	
+	
+	<!--   -->   </div>
+   <div id="content">
+    <div style="float:left; width:698px">
+    <div style="background-image:url(images/content_top1.gif);float:left;	width:698px; height:10px; margin:0px; padding:0px;	background-repeat:no-repeat;"></div>
+        <div id="contentpage">
+                        <div id="content_head" align="center">notice</div>
+            <div id="content_head_bottom"></div>
+            <!-- <h3>&nbsp;</h3>-->
+            <div id="content_text">
+                                            <div id="news">
+                                                                        <div class="date">Monday, 30 Sep 2019</div>
+                                    <div class="title1"><a href="index.php?page=news&type=notice&id=582">Dashain-Tihar Vacation</a></div>
+                                    <div class="content">Notice
+</div>
+                                    <div class="more"><a href="index.php?page=news&type=notice&id=582">Read More &raquo;</a></div>
+                                </div>
+                                                            <div id="news">
+                                                                        <div class="date">Thursday, 19 Sep 2019</div>
+                                    <div class="title1"><a href="index.php?page=news&type=notice&id=581">Constitution Day</a></div>
+                                    <div class="content">Notice
+</div>
+                                    <div class="more"><a href="index.php?page=news&type=notice&id=581">Read More &raquo;</a></div>
+                                </div>
+                                                            <div id="news">
+                                                                        <div class="date">Sunday, 8 Sep 2019</div>
+                                    <div class="title1"><a href="index.php?page=news&type=notice&id=580">First Term Exam 2076</a></div>
+                                    <div class="content">Trinity International S. School &amp; College
+</div>
+                                    <div class="more"><a href="index.php?page=news&type=notice&id=580">Read More &raquo;</a></div>
+                                </div>
+                                                            <div id="news">
+                                                                        <div class="date">Friday, 16 Aug 2019</div>
+                                    <div class="title1"><a href="index.php?page=news&type=notice&id=577">Head of Departments & Class Teachers</a></div>
+                                    <div class="content">
+Head of Departments &amp; Class Teachers
+</div>
+                                    <div class="more"><a href="index.php?page=news&type=notice&id=577">Read More &raquo;</a></div>
+                                </div>
+                                                            <div id="news">
+                                                                        <div class="date">Monday, 12 Aug 2019</div>
+                                    <div class="title1"><a href="index.php?page=news&type=notice&id=575">First Class Test Grade XI</a></div>
+                                    <div class="content">Trinity International SS &amp; College
+</div>
+                                    <div class="more"><a href="index.php?page=news&type=notice&id=575">Read More &raquo;</a></div>
+                                </div>
+                                                            <div id="news">
+                                                                        <div class="date">Monday, 12 Aug 2019</div>
+                                    <div class="title1"><a href="index.php?page=news&type=notice&id=576">Second Class Test Grade XII</a></div>
+                                    <div class="content">Trinity International SS &amp; College
+</div>
+                                    <div class="more"><a href="index.php?page=news&type=notice&id=576">Read More &raquo;</a></div>
+                                </div>
+                                                            <div id="news">
+                                                                        <div class="date">Wednesday, 22 May 2019</div>
+                                    <div class="title1"><a href="index.php?page=news&type=notice&id=574">Class Commencement - Grade XII</a></div>
+                                    <div class="content">Notice
+</div>
+                                    <div class="more"><a href="index.php?page=news&type=notice&id=574">Read More &raquo;</a></div>
+                                </div>
+                                                            <div id="news">
+                                                                        <div class="date">Friday, 26 Apr 2019</div>
+                                    <div class="title1"><a href="index.php?page=news&type=notice&id=573">Bus Route for NEB Exam Center</a></div>
+                                    <div class="content">College bus users are kindly informed to follow the following transportation route and time for pick up and drop off to and from NEB Board Exam centre</div>
+                                    <div class="more"><a href="index.php?page=news&type=notice&id=573">Read More &raquo;</a></div>
+                                </div>
+                                                            <div id="news">
+                                                                        <div class="date">Sunday, 7 Apr 2019</div>
+                                    <div class="title1"><a href="index.php?page=news&type=notice&id=571">Pre-Board Re-Examination (Grade XII)</a></div>
+                                    <div class="content">Trinity International S School
+</div>
+                                    <div class="more"><a href="index.php?page=news&type=notice&id=571">Read More &raquo;</a></div>
+                                </div>
+                                                            <div id="news">
+                                                                        <div class="date">Sunday, 7 Apr 2019</div>
+                                    <div class="title1"><a href="index.php?page=news&type=notice&id=572">Pre-Board Re-Examination (Grade XI)</a></div>
+                                    <div class="content">Trinity International S School
+</div>
+                                    <div class="more"><a href="index.php?page=news&type=notice&id=572">Read More &raquo;</a></div>
+                                </div>
+                                                    <div align="right" id="pagenumber" style="width:678px; margin-top:5px; margin-bottom:5px; float:left">   
+			   [Showing Page 1 of 30]  [1 - 10 of 292] &nbsp;&nbsp;&nbsp;   [1] <a href=index.php?page=news&type=notice&pageno=2>[2]</a> <a href=index.php?page=news&type=notice&pageno=3>[3]</a> <a href=index.php?page=news&type=notice&pageno=4>[4]</a> <a href=index.php?page=news&type=notice&pageno=5>[5]</a>  ... &nbsp;&nbsp;&nbsp; &nbsp;<a href="index.php?page=news&type=notice&pageno=2">Next &raquo;</a>  			</div>
+                                      </div>
+        </div>
+        
+        
+    <div style="background-image:url(images/content_bottom1.gif);float:left;	width:698px; height:10px; margin:0px; padding:0px;background-repeat:no-repeat;"></div>
+</div>	
+   
+    </div>
+</div>
+<!-- mainbody end-->
+</div>
+<div id="footer">
+<div align="center" style="margin-bottom:5px;">
+<a href="index.php?page=content&id=59" class="normalLink">Privacy Policy</a> | <a href="index.php?page=content&id=61" class="normalLink">Disclaimer</a></div>
+<table width="78%" align="center">
+<tr>
+<td> <div align="center" class="style49">Copyright  © 2008 Trinity International College - All Rights Reserved </div></td>
+<td width="4%"><a href="https://www.facebook.com/Trinity-International-HSSCollege-123877371368846/?fref=ts" target="_blank"><img webapi="simage/facebook.png" border="0" /></a></td>
+<td width="4%"><a href="https://twitter.com/TrinityHSSchool" target="_blank"><img webapi="simage/twitter.png" border="0" /></a></td>
+<td width="5%"><a href="https://www.youtube.com/channel/UCI9QxocOF5Dy5_skkOYIGiA" target="_blank"><img webapi="simage/youtube.png" border="0" /></a></td>
+</tr>
+</table>
+     
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	function qSearchFocus(f){
+		if(f.value == "Quick Search"){	
+			f.value = "";			
+		}
+		f.style.color = "#333333";
+	}
+	function qSearchBlur(f){
+		if(f.value == ""){
+			f.style.color = "#999999";
+			f.value = "Quick Search";
+		}
+	}
+</script>
+<script type="text/javascript">
+
+cssdropdown.startchrome("chromemenu")
+
+</script>
+<script type="text/javascript">
+	function changeColor(id,bgcolor,color){	
+		/*lists = document.getElementById("chromemenu").getElementsByTagName("li");
+		for(i=0;i<lists.length;i++){
+			lists[i].style.backgroundColor =  bgcolor;
+			lists[i].style.color =  color;			
+		}*/
+		id.style.backgroundColor =  bgcolor;
+		id.style.color =  color;	
+	}
+</script>
+
+

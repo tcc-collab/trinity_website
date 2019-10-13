@@ -1,0 +1,15 @@
+*venv*
+*vscode*
+*pyc
+*pycache*
+*vscode
+*vim*
+*swp
+*swo
+*swn
+*.lock*
+*.orig*
+*poetry*
+secrets*
+*.db*
+*.env
