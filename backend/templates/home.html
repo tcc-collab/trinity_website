@@ -1,15 +1,16 @@
 {% extends 'layout.html' %}
 {%block content%}
 
-    {% for key, top_list in top_items.items() %}
+  <div class="container">
+    {% for key, value in top_items.items() %}
       <div class="panel panel-default">
         <div class="notice panel-heading main-panel">
-          <a>{{key}}</a>
+            <a href="{{value.link}}" target="_blank">{{key}}</a>
         </div>
-        {% for item in top_list %}
+        {% for item in value.list %}
           {%if key != "Events" %}
             <div class="panel-body">
-              <a href='{{item.full_link}}' target='_blank'>{{item.title}}</a>
+              <a href="{{url_for(value.detail_func, link=item.full_link)}}" target='_blank'>{{item.title}}</a>
             </div>
 
           {% else %}
@@ -51,6 +52,7 @@
       </div>
     {% endfor %}
 
+  </div>
 {%endblock%}
 
 

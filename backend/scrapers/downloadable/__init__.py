@@ -1,14 +1,13 @@
 """
 Downloadable package:
 
-get_downloadable() -> Dict
+get_downloadable(html) -> Dict
 """
 
-from backend.scrapers import get_html
 
-
-def get_downloadable():
+def get_downloadable(html_soup):
     """
+    Params = <reuests HTML> obj
     Returns -> Dict{
     'left': Dict {
           'link': Link of downloadable item
@@ -16,8 +15,6 @@ def get_downloadable():
          }
     }
     """
-    html_soup = get_html()
-
     # Get the downloadable item in left side
     left_div = html_soup.find("div#leftnoav", first=True)
     left_div_a_tag = left_div.find("p", first=True).find("a", first=True)

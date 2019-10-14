@@ -34,3 +34,8 @@ def get_navbar(html):
 
     top_navs = [home, contact, publication, admission]
     return (top_navs, deep_navs)
+
+
+# def get_responsive_html(url):
+#    html_soup = get_html(url)
+#    url_div_map = {}

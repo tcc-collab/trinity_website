@@ -1,14 +1,13 @@
 """
 Footer package:
 
-get_footer() -> Dict
+get_footer(html) -> Dict
 """
 
-from backend.scrapers import get_html
 
-
-def get_footer():
+def get_footer(html_soup):
     """
+    Params -> <requests HTML> obj
     Returns -> Dict {
     'privacy_policy': link to site's privacy policy
     'disclaimer': link to site's disclaimer
@@ -17,7 +16,6 @@ def get_footer():
     'facebook': trinity's facebook page
     }
     """
-    html_soup = get_html(cache=True)
     footer_div = html_soup.find("#footer", first=True)
     legal_div = footer_div.find("div", first=True)
     a_tags = legal_div.find("a")
