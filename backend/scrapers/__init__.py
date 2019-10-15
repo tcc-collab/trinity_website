@@ -22,7 +22,7 @@ CACHE_DIR = "/home/h/trinity_website/backend/scrapers/cache/"
 TRINITY_LINK = "http://trinitycollege.edu.np/"
 
 
-def get_html(url=TRINITY_LINK, cache=True):
+def get_html(url=TRINITY_LINK, cache=True, rendered=False):
     """
     Returns a valid <requests HTML> object.
     Params:
@@ -35,7 +35,7 @@ def get_html(url=TRINITY_LINK, cache=True):
         html = __get_html_from_cache(url)
     if not html:
         print("FETCHING", url)
-        html = fetch_html(url)
+        html = fetch_html(url, rendered=rendered)
     return html
 
 
@@ -68,12 +68,23 @@ def __get_html_from_cache(url):
         return None
 
 
-def fetch_html(url):
+def fetch_html(url, rendered=False):
     """
     Fetch html from web.
     Returns -> <requests HTML> object.
     Params -> URL of the web resource.
     """
+
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1)"
+            "AppleWebKit/537.36 (KHTML, like Gecko)"
+            "Chrome/39.0.2171.95 Safari/537.36"
+        )
+    }
+
     session = HTMLSession()
-    result = session.get(url)
+    result = session.get(url, headers=headers)
+    if rendered:
+        result.html.render()
     return result.html
