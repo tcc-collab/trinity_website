@@ -18,13 +18,13 @@
                   <a href="{{url_for('home')}}">
               {% else %}
                 <li>
-                  <a href="{{nav_item.link}}">
+                  <a href="{{url_for(nav_item.id, link=nav_item.link)}}">
               {%endif%}
                     {{nav_item.name}}
                   </a>
                 </li>
             {% endfor %}
-             
+
             {% for nav_name, nav_items in nested_navs.items() %}
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -33,7 +33,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   {% for item in nav_items %}
-                  <li><a href="{{item.link}}" target="_blank">{{item.name}}</a></li>
+                  <li><a href="{{url_for(item.id, link=item.link)}}">{{item.name}}</a></li>
                   {% endfor %}
                 </ul>
               </li>

@@ -5,12 +5,12 @@
     {% for key, value in top_items.items() %}
       <div class="panel panel-default">
         <div class="notice panel-heading main-panel">
-            <a href="{{value.link}}" target="_blank">{{key}}</a>
+            <a href="{{value.link}}">{{key}}</a>
         </div>
         {% for item in value.list %}
           {%if key != "Events" %}
             <div class="panel-body">
-              <a href="{{url_for(value.detail_func, link=item.full_link)}}" target='_blank'>{{item.title}}</a>
+              <a href="{{url_for(value.detail_func, link=item.full_link)}}">{{item.title}}</a>
             </div>
 
           {% else %}
@@ -28,7 +28,7 @@
                 <div class="eventtitle">
 
                   {% if item.link %}
-                  <a href="{{item.link}}" target="_blank">
+                  <a href="{{item.link}}">
                     {{ item.title }}
                   </a>
                   {% else %}

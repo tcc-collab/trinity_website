@@ -33,9 +33,14 @@ def get_navbar(html):
                 deep_navs["Faculty and staffs"].append(nav_item)
 
     top_navs = [home, contact, publication, admission]
+
+    for nav_item in top_navs:
+        nav_name = nav_item["name"].lower()
+        nav_item["id"] = "notice"
+
+    for nav_group, nav_items in deep_navs.items():
+        for nav_item in nav_items:
+            nav_name = nav_item["name"].lower()
+            nav_item["id"] = "notice"
+
     return (top_navs, deep_navs)
-
-
-# def get_responsive_html(url):
-#    html_soup = get_html(url)
-#    url_div_map = {}

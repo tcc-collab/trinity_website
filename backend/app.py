@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, url_for
 
 from backend.scrapers import get_html
 from backend.scrapers.downloadable import get_downloadable
@@ -51,7 +51,6 @@ def notice():
     main_navs, nested_navs, footer = get_layout_data(html)
     top_notices = get_top_notice(html)
     link = request.args.get("link", "", type=str)
-    print("THIS IS LINK", link)
     if not link:
         pass
 
