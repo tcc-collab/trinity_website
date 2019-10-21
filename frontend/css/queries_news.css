@@ -204,10 +204,20 @@
 
 @media only screen and (max-width: 627px){
     #content_head{
-        font-size: 80px;
+        font-size: 70px;
         padding: 0px 50px;
     }
     .MsoNormal:nth-child(1){
         font-size: 6rem;
     }
+}
+@media only screen and (max-width: 400px){
+    #content_head{
+        font-size: 45px;
+        padding: 0px 20px;
+    }
+    .MsoNormal:nth-child(1){
+        font-size: 3.8rem;
+    }
+
 }
