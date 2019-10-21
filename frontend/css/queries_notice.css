@@ -2,14 +2,14 @@
     html,body{
         font-size: 56.25%;
     }
+    body{
+        height: 230rem;/*to solve scroll bar problem*/
+    }
 
 }
 @media only screen and (max-width:900px){
     html,body{
         font-size: 50%;
-    }
-    body{
-        height: 200rem;/*to solve scroll bar problem*/
     }
 
     .MsoNormal:nth-child(6){
@@ -80,6 +80,9 @@
 }
 
 @media only screen and (max-width:660px){
+    body{
+        height: 240rem;/*to solve scroll bar problem*/
+    }
     .MsoNormal:nth-child(2),
     .MsoNormal:nth-child(4),
     .MsoNormal:nth-child(7),
@@ -94,6 +97,7 @@
     }
 }
 @media only screen and (min-width:1200px){
+    
     html,body{
         font-size: 75%;
     }
