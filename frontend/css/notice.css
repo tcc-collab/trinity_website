@@ -1,0 +1,214 @@
+
+*{
+    z-index: 10;
+}
+
+*::before{
+    z-index: 5;
+}
+
+html,body{
+    font-size: 62.5%; /*1rem = 10px*/
+}
+
+body {
+    box-sizing: border-box;
+    background: linear-gradient(45deg,#b10e16,#e74c3c );
+    color: #4d4d4d;
+    height: 195rem;/* to avoid annoying scoll bar. change this if content is added and change it in queries_news.css*/
+}
+
+
+/************************
+Heading edit
+************************/
+
+#content_head{
+    font-size: 12rem;
+    top: 65vh;
+    margin: 0;
+    padding: 0px 8rem;   
+}
+
+
+.MsoNormal:nth-child(1){
+    display: none;
+}
+
+/******Heading background*****/
+#content_head_bottom::before{
+    content: "";
+    position: absolute;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    height: 90vh;
+    background: linear-gradient(45deg,#fbc531,#fdad15);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+/*********Picture in header *********/
+
+
+.MsoNormal:nth-child(5)::before{
+    content: "";
+    background-image: linear-gradient(rgba(255,255,255,0),rgba(0,0,0,.7)),url('img/kite.jpg');
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85vw;
+    height: 90vh;
+    background-size: cover;
+    z-index: 6;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+/**************************
+Content
+*****************************/
+
+p,div{
+    font-size: 1.9rem;
+}
+
+/* Date */
+#content_text div:nth-child(2){
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    color: #f4f4f4;
+}
+
+/*Heading of notice*/
+#content_text div:nth-child(1){
+    position: absolute;
+    top: 115vh;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 21rem auto;
+    font-size: 3.7rem;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+#content_text div:nth-child(1)::after{
+    content: "";
+    height: 4px;
+    background-color: #fdad15;
+    width: 15rem;
+    margin: 0 auto;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.MsoNormal:nth-child(2),
+.MsoNormal:nth-child(4),
+.MsoNormal:nth-child(7),
+.MsoNormal:nth-child(8),
+.MsoNormal:nth-child(10),
+.MsoNormal:nth-child(12),
+.MsoNormal:nth-child(13){
+    position: absolute;
+    top: 115vh;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 65rem;
+    text-align: center;
+    letter-spacing: 1px;
+    line-height: 2.4rem;
+}
+
+
+.MsoNormal:nth-child(2){
+    margin-top: 35rem;
+    
+}
+.MsoNormal:nth-child(4){
+    margin-top: 42rem;
+}
+
+.MsoNormal:nth-child(7){
+    margin-top: 52rem;
+}
+
+.MsoNormal:nth-child(8){
+    margin-top: 56rem;
+    font-size: 1.7rem;
+    font-style: italic;
+}
+
+.MsoNormal:nth-child(10){
+    margin-top: 65rem;
+    font-size: 1.7rem;
+    font-style: italic;
+}
+.MsoNormal:nth-child(12){
+    margin-top: 77rem;
+}
+.MsoNormal:nth-child(13){
+    margin-top: 79.5rem;
+}
+
+
+
+/* paper effect*/
+.MsoNormal:nth-child(6) {
+  background: #f5f5f5;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  max-width: 60vw;
+  min-height: 80rem;
+  padding: 24px;
+  position: absolute;
+  top: 100vh;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 8;
+  margin: 21rem auto 15rem auto;
+}
+.MsoNormal:nth-child(6):before, .MsoNormal:nth-child(6):after {
+  content: "";
+  height: 98%;
+  position: absolute;
+  width: 100%;
+}
+.MsoNormal:nth-child(6):before {
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  left: -5px;
+  top: 4px;
+  transform: rotate(-2.5deg);
+  z-index: 4;
+}
+.MsoNormal:nth-child(6):after {
+  background: #f4f4f4;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  right: -3px;
+  top: 1px;
+  transform: rotate(1.4deg);
+  z-index: 3;
+
+}
+/* paper effect end*/
+
+/* watermark of logo*/
+
+.MsoNormal:nth-child(11){
+    background-image: url('../img/logo_b.png');
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 31rem;
+    top: 115vh;
+    height: 30rem;
+    width: 38rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: .2;
+    z-index: 9;
+}
