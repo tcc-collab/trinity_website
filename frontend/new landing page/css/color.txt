@@ -1,0 +1,13 @@
+grey:#555; (font color)
+red:#e74c3c,rgba(231, 76, 60,1.0),
+orange:#e67e22,rgba(230, 126, 34,1.0),
+dark blue like:#2c3e50
+purple like:#130f40
+
+
+Colors according to logo
+orange : ##fdad15 rgb(253, 173, 21)
+red : #b10e16, rgb(177, 14, 22)
+
+
+
