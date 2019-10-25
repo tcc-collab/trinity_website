@@ -1,0 +1,367 @@
+*{
+    z-index: 10;
+}
+
+*::before{
+    z-index: 0;
+}
+html,body{
+    color:#f4f4f4;
+    font-size: 62.5%;/*1rem = 10px*/
+}
+
+
+#content_text div:nth-child(1){
+    display: none;
+}
+#content_text div:nth-child(2){
+    position: absolute;
+    margin: 1rem;
+    font-size: 1.6rem;
+}
+
+
+
+/* for congratulations*/
+.MsoNormal:nth-child(1){
+    position: absolute;
+    top: 60vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    font-size: 13rem;
+    color: #e74c3c;
+    font-weight: 600;
+    animation: text-reveal 0.5s forwards;
+    letter-spacing: 3px;
+    z-index: 50;
+    text-shadow:1px 1px 1px #b10e16 ;
+}
+
+.MsoNormal:nth-child(1)::after{
+    content: "";
+    height: 5px;
+    background-color: #e74c3c;
+    width: 20rem;
+    margin: 0 auto;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    animation: enlarge 0.5s forwards;
+
+}
+/* end*/
+
+/**********************
+Common styles in congratulation
+**********************/
+
+/*for Text*/
+
+.MsoNormal:nth-child(3),
+.MsoNormal:nth-child(6),
+.MsoNormal:nth-child(8),
+.MsoNormal:nth-child(9),
+.MsoNormal:nth-child(11),
+.MsoNormal:nth-child(13),
+.MsoNormal:nth-child(14){
+    position: absolute;
+    text-align: center;
+}
+
+/*Name*/
+.MsoNormal:nth-child(3),
+.MsoNormal:nth-child(8),
+.MsoNormal:nth-child(11){
+    font-size:3rem;
+    display: inline-block;
+    width: 50rem;
+    letter-spacing: 3px;
+    line-height: 4.05rem;
+}
+
+/*Winner text*/
+
+.MsoNormal:nth-child(6),
+.MsoNormal:nth-child(9),
+.MsoNormal:nth-child(13),
+.MsoNormal:nth-child(14){
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+
+.MsoNormal:nth-child(6) span:first-of-type,
+.MsoNormal:nth-child(9) span:first-of-type,
+.MsoNormal:nth-child(13){
+    display: block;
+    font-size: 9rem;
+}
+.MsoNormal:nth-child(6) span:not(:first-of-type),
+.MsoNormal:nth-child(9) span:not(:first-of-type),
+.MsoNormal:nth-child(14){
+    font-size: 2.5rem;
+    letter-spacing: 30px;
+}
+
+
+/* Background */
+.MsoNormal:nth-child(10),
+.MsoNormal:nth-child(12){
+    height: 110vh;
+}
+.MsoNormal:nth-child(10)::before,
+.MsoNormal:nth-child(12)::before{
+    content: "";
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: absolute;
+    width: 100vw;
+    height: 110vh;
+    background-size: cover;
+}
+
+.MsoNormal:nth-child(7),
+.MsoNormal:nth-child(15){
+    position: absolute;
+    width: 50%;
+    z-index: 1;
+    height: 110vh;
+}
+
+
+/**********************
+1st congratulation
+**********************/
+
+/*for Text*/
+
+.MsoNormal:nth-child(3),
+.MsoNormal:nth-child(6){
+    right: 25%;
+    transform: translateX(50%);
+}
+
+/*Name*/
+.MsoNormal:nth-child(3){
+    top:170vh;
+}
+
+/*Winner text*/
+
+.MsoNormal:nth-child(6){
+    top: 130vh;
+}
+
+/* Background */
+.MsoNormal:nth-child(2){
+    height: 220vh;
+}
+.MsoNormal:nth-child(2)::before{
+    content: "";
+    background-image: url('img/robomaze.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 220vh;
+    background-size: cover;
+}
+
+.MsoNormal:nth-child(4),
+.MsoNormal:nth-child(5){
+    position: absolute;
+    width: 50%;
+    z-index: 1;
+    height: 110vh;
+}
+.MsoNormal:nth-child(4){
+    top: 0;
+    left: 0;
+    background-color: #b10e16;
+}
+.MsoNormal:nth-child(5){
+    top: 110vh;
+    right: 0;
+    background-color: #e67e22;
+}
+
+/**********************
+2nd congratulation
+**********************/
+
+.MsoNormal:nth-child(8),
+.MsoNormal:nth-child(9){
+    left: 25%;
+    transform: translateX(-50%);
+}
+
+/*Name*/
+.MsoNormal:nth-child(8){
+    top:280vh;
+}
+
+/*Winner text*/
+
+.MsoNormal:nth-child(9){
+    top: 240vh;
+}
+
+
+/* Background */
+.MsoNormal:nth-child(10)::before{
+    background-image: url('img/binary.jpg');
+    top: 220vh;
+    left: 0%;
+}
+
+.MsoNormal:nth-child(7){
+    background-color:#2c3e50;
+    top: 220vh;
+    left: 0;
+}
+
+/**********************
+3rd congratulation
+**********************/
+
+.MsoNormal:nth-child(11),
+.MsoNormal:nth-child(13),
+.MsoNormal:nth-child(14){
+    right: 25%;
+    transform: translateX(50%);
+}
+
+/*Name*/
+.MsoNormal:nth-child(11){
+    top:390vh;
+}
+
+/*Winner text*/
+
+.MsoNormal:nth-child(13){
+    top: 353vh;
+}
+.MsoNormal:nth-child(14){
+    top: 367vh;
+    letter-spacing: 15px !important;
+}
+
+
+/* Background */
+.MsoNormal:nth-child(12)::before{
+    background-image: url('img/rocket.jpg');
+    background-position: left;
+    background-size: 55%;
+    top: 330vh;
+    left: 0%;
+}
+
+.MsoNormal:nth-child(15){
+    background-color:#130f40;
+    top: 330vh;
+    right: 0;
+}
+
+/*********************************
+organized by......(section)
+*************************************/
+
+.MsoNormal:nth-child(16),
+.MsoNormal:nth-child(17),
+.MsoNormal:nth-child(20){
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.MsoNormal:nth-child(18){
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 430vh;
+    background-color: #e67e22;   
+    width: 114rem;
+    height: 60vh;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    z-index: 8;
+}
+
+
+.MsoNormal:nth-child(19){
+    height: 60vh;
+    width: 100%;
+}
+.MsoNormal:nth-child(19)::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 60vh;
+    background-color: #b10e16;
+    left: 0;
+
+}
+.MsoNormal:nth-child(16){
+    font-size: 5rem;
+    letter-spacing: 7px;
+    top: 435vh;
+}
+.MsoNormal:nth-child(17){
+    top: 449vh;
+    font-size: 1.6rem;
+}
+
+.MsoNormal:nth-child(20){
+    top: 456vh;
+    font-size: 2.5rem;
+}
+.MsoNormal:nth-child(23),
+.MsoNormal:nth-child(24){
+    position: absolute;
+    top: 476vh;
+    left: 25.6%;
+    left: 25.6%;
+
+} 
+.MsoNormal:nth-child(23){
+    top: 476vh;
+    font-size: 1.6rem;
+}
+.MsoNormal:nth-child(24){
+    font-size: 1.6rem;
+    top: 480vh;
+} 
+.MsoNormal:nth-child(21){
+    display: none;
+}
+.MsoNormal:nth-child(22){
+    display: none;
+}
+
+
+/*********************
+animations
+**********************/
+
+
+@keyframes text-reveal{
+    0%{
+        letter-spacing: -8.4rem;
+    }   
+    100%{
+        letter-spacing: 3px;
+    }
+}
+
+
+@keyframes enlarge{
+    0%{
+        transform:translate(-50%) scaleX(0);
+    }
+    100%{
+        transform:translateX(-50%) scaleX(1);
+    }
+}

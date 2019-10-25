@@ -1,0 +1,223 @@
+/*addditionls*/
+
+@media only screen and (max-width: 1478px){
+    /* for organized by section*/
+    .MsoNormal:nth-child(17){
+        top: 452vh;
+    } 
+    .MsoNormal:nth-child(20){
+        top: 459vh;
+    }    
+    /*end*/
+}
+
+@media only screen and (max-width: 1354px){
+    .MsoNormal:nth-child(1){
+        font-size: 10rem;
+    }
+    .MsoNormal:nth-child(14){
+        letter-spacing: 8px !important;
+    }
+}
+
+
+@media only screen and (max-width: 1302px){
+    html,body{
+        font-size: 50%; /*1rem = 8px*/
+    }
+
+    /*for title*/
+    #content_head{
+        font-size: 150px;
+    }
+    /*end*/
+
+    
+
+}
+@media only screen and (max-width: 968px){
+    html,body{
+        font-size: 48%; 
+    }
+    /* for organized by section*/
+    .MsoNormal:nth-child(17){
+        top: 460vh;
+    } 
+    .MsoNormal:nth-child(20){
+        top: 467vh;
+    } 
+    .MsoNormal:nth-child(23){
+        top: 477vh;
+    } 
+    .MsoNormal:nth-child(24){
+        top: 481vh;
+    } 
+    /*end*/
+}
+
+@media only screen and (max-width: 841px){
+    html,body{
+        font-size: 40%;
+    }
+    #content_head{
+        font-size: 110px;
+        padding: 0px 80px;   
+        
+    }
+    #content_text div:nth-child(2){
+        font-size: 2rem;
+    }
+    .MsoNormal:nth-child(23){
+        font-size: 2.1rem;
+    }
+    .MsoNormal:nth-child(24){
+        font-size: 2.1rem;
+    } 
+    .MsoNormal:nth-child(17){
+        font-size: 2.1rem;
+    }
+    
+    .MsoNormal:nth-child(20){
+        font-size: 2.7rem;
+    }
+}
+
+@media only screen and (max-width: 792px){
+    html,body{
+        font-size: 35%;
+    }
+    #content_text div:nth-child(2){
+        background-color: rgba(0,0,0,.5);
+    }
+
+
+    .MsoNormal:nth-child(1){
+        top: 70vh;
+    }
+    /* change layout*/
+    .MsoNormal:nth-child(4),
+    .MsoNormal:nth-child(5){
+        width: 100%;
+        height: 55vh;
+    }
+    .MsoNormal:nth-child(4){
+        top: 55vh;
+        left: 0;
+    }
+    .MsoNormal:nth-child(5){
+        top: 165vh;
+        right: 0;
+    }
+    .MsoNormal:nth-child(7),
+    .MsoNormal:nth-child(15){
+        width: 100%;
+        height: 55vh;
+    }
+
+    /*layout end*/
+
+    /*POSTIONING*/
+    /**********************
+    1st congratulation
+    **********************/
+    .MsoNormal:nth-child(3),
+    .MsoNormal:nth-child(6){
+        right: 50%;
+        transform: translateX(50%);
+    }
+    /*Name*/
+    .MsoNormal:nth-child(3){
+        top:200vh;
+    }
+
+    /*Winner text*/
+
+    .MsoNormal:nth-child(6){
+        top: 170vh;
+    }
+
+        
+    /**********************
+    2nd congratulation
+    **********************/
+
+    .MsoNormal:nth-child(8),
+    .MsoNormal:nth-child(9){
+        left: 50%;
+    }
+
+    /*Name*/
+    .MsoNormal:nth-child(8){
+        top:310vh;
+    }
+
+    /*Winner text*/
+
+    .MsoNormal:nth-child(9){
+        top: 280vh;
+    }
+
+
+    /* Background */
+
+    .MsoNormal:nth-child(7){
+        top: 275vh;
+    }
+    /**********************
+    3rd congratulation
+    **********************/
+
+    .MsoNormal:nth-child(11),
+    .MsoNormal:nth-child(13),
+    .MsoNormal:nth-child(14){
+        right: 50%;
+    }
+
+    /*Name*/
+    .MsoNormal:nth-child(11){
+        top:410vh;
+    }
+
+    /*Winner text*/
+
+    .MsoNormal:nth-child(13){
+        top: 390vh;
+    }
+    .MsoNormal:nth-child(14){
+        top: 400vh;
+    }
+
+
+    /* Background */
+    .MsoNormal:nth-child(12)::before{
+        background-position: auto;
+        background-size:cover;
+    }
+
+    .MsoNormal:nth-child(15){
+        top: 385vh;
+    }
+
+    /*POSITIONING END*/
+
+}
+
+@media only screen and (max-width: 627px){
+    #content_head{
+        font-size: 70px;
+        padding: 0px 50px;
+    }
+    .MsoNormal:nth-child(1){
+        font-size: 6rem;
+    }
+}
+@media only screen and (max-width: 400px){
+    #content_head{
+        font-size: 45px;
+        padding: 0px 20px;
+    }
+    .MsoNormal:nth-child(1){
+        font-size: 3.8rem;
+    }
+
+}
