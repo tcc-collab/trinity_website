@@ -5,6 +5,7 @@ get_responsive_html(url) -> [str] HTML
 """
 
 from bs4 import BeautifulSoup as BS
+from bs4 import Comment
 from backend.scrapers import get_html, TRINITY_LINK
 
 
@@ -20,6 +21,11 @@ def get_responsive_html(url):
     content = html_obj.find("div#content", first=True)
 
     html_soup = BS(content.html, features="lxml")
+
+    # Remove the comments in html
+    comments = html_soup.find_all(string=lambda text: isinstance(text, Comment))
+    for c in comments:
+        c.extract()
 
     # Make all ptags and span tags div
     all_p_tags = html_soup.find_all("p")
@@ -116,15 +122,5 @@ def get_responsive_html(url):
             width_attr = tag.get("width")
             if width_attr:
                 del tag["width"]
-
-    # Put container fluid in all the divs
-    for div in all_divs:
-        div_class = div.get("class")
-        """
-        if not div_class:
-            div["class"] = "container-fluid container2"
-        else:
-            div["class"] += " container-fluid container2"
-            """
 
     return html_soup.prettify(formatter="html")
