@@ -1,0 +1,223 @@
+
+/*************
+icon for nav
+***********/
+
+.nav_btn{
+    background-color: #f4f4f4;
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    position: fixed;
+    top: 5rem;
+    right: 5rem;
+    z-index: 2000;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: -4px 10px 40px -20px #000;
+    transition: all .3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    padding:5px 17px;
+}
+.nav_btn:hover{
+    transform: translateY(-5px);
+    box-shadow: -4px 10px 30px -20px #000;
+}
+
+.nav_btn:active{
+    transform: translateY(0);
+    box-shadow: -4px 10px 10px -20px #000;
+
+}
+
+.nav_icon_1,
+.nav_icon_2,
+.nav_icon_3{
+    position: relative;
+    width: 100%;
+    margin: 3px auto;
+    height: 2px;
+    display: block;
+    background-color: #555;
+    transition: all .2s;
+}
+
+
+.nav_btn:hover .nav_icon_3{
+    margin-top: 4px;
+}
+.nav_btn:hover .nav_icon_1{
+    margin-bottom: 4px;
+}
+/***************** for events*************************/
+.clicked_btn{
+    transform: translateX(-33rem);
+}
+.clicked_btn:hover{
+    transform: translateY(-5px) translateX(-33rem);
+}
+
+.clicked_btn:active{
+    transform: translateY(0) translateX(-33rem);
+
+}
+
+.clicked_icon_2{
+    background-color: transparent;
+}
+.clicked_icon_1{
+    transform: rotate(135deg) translate(3px,-7px);
+}
+.clicked_icon_3{
+    transform: rotate(-135deg) translate(6px,8px);
+}
+/********************events end*******************************/
+/********
+icon end
+*******/
+
+
+.primary_nav{
+    transform-origin: top right;
+    transform: translateX(100%);
+    position: fixed;
+    top: 0;
+    right:  0;
+    z-index: 999;
+    background-color: #222;
+    padding: 4rem 0;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all .3s ease;
+}
+.primary_nav_reveal{
+    transform: translateX(0);
+}
+.primary_nav ul{
+    list-style: none;
+}
+
+
+.primary_nav a{
+    color: #efefef;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    padding: 1.3rem 4rem;
+    padding-left: 8rem;
+    display: block;
+    margin-bottom: 1rem;
+    position: relative;
+    text-transform: uppercase;
+    transition: all .3s ease;
+}
+
+.primary_nav a::before{
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(45deg,#e74c3c,#b10e16);
+    transform: scaleY(0);
+    transition: transform .2s,
+                    width .4s .2s cubic-bezier(1,.0,0,.1),
+                    background-color .1s;
+}
+.primary_nav a:active::before{
+    background: linear-gradient(275deg,#e74c3c,#b10e16);
+}
+.primary_nav a:hover::before{
+    transform: scaleY(1);
+    width: 100%;
+}
+
+.primary_nav a:hover{
+    transform: translateX(10px);
+}
+/************
+icon for dropdown
+************/
+
+.drop_icon{
+    margin-right: 4px;
+    margin-left: -20px;
+    transition: all .3s ease;
+}
+.active_drop{
+    transform: rotateZ(180deg);
+}
+/**********
+for dropdown
+*************/
+.dropdown_btn{
+    transition: all .3s ease;
+}
+
+.hidden_nav{
+    overflow: hidden;
+    background-color: #111;
+    height: 0;
+    transform: translateY(-100%);
+    transition: transform .3s ease,
+                opacity .1s .1s ease;
+    opacity: 0;
+} 
+
+
+.clicked_dropdown{
+    opacity: 1;
+    transform: translateY(0);
+    height: 100%;
+}
+
+/**************
+for background
+************/
+.dark_body{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .8);
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity .3s ease;
+}
+
+.clicked_dark_body{
+    transform: scale(1);
+    opacity: .9;
+    display: block;
+}
+/************for queries******************/
+@media only screen and (max-width: 372px){
+    .clicked_btn{
+        transform: translateX(-17rem);
+    }
+    .clicked_btn:hover{
+        transform: translateY(-5px) translateX(-17rem);
+    }
+    
+    .clicked_btn:active{
+        transform: translateY(0) translateX(-17rem);
+    
+    }
+    
+    .primary_nav{
+        padding: 13rem 0;
+    }
+    .primary_nav a{
+        padding-left: 5.5rem;
+    }
+}
+
+/****end*****/
