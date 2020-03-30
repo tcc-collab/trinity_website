@@ -4,9 +4,11 @@ Detail html package:
 get_responsive_html(url) -> [str] HTML
 """
 
+import pandas as pd
 from bs4 import BeautifulSoup as BS
 from bs4 import Comment
 from backend.scrapers import get_html, TRINITY_LINK
+
 
 
 def get_responsive_html(url):
@@ -16,7 +18,7 @@ def get_responsive_html(url):
     Returns -> [str] HTML
     Params => [str] URL
     """
-    html_obj = get_html(url)
+    html_obj = get_html(url,cache=False)
     # Get the downloadable item in left side
     content = html_obj.find("div#content", first=True)
 
@@ -63,7 +65,7 @@ def get_responsive_html(url):
                 last_num = list(filter(str.isdigit, size_part))[-1]
                 # 5 -> index=1,3 -> index=3 -> '15.5' -> 15.5 -> 15
                 size = int(float(size_part[: size_part.rfind(last_num) + 1]))
-                in_percentage = 100 / 16 * size
+                in_percentage = 100 / 10 * size
                 if in_percentage > 200:
                     in_percentage = 200
                 em_size_part = str(in_percentage) + "%"
@@ -77,9 +79,9 @@ def get_responsive_html(url):
                 # url(images.png)
                 url_part = background_image.split(":")[1].strip()
                 # images.png
-                url = url_part[4:-1]
+                image_url = url_part[4:-1]
                 # http://test.com/images.png
-                full_url = TRINITY_LINK + "/" + url
+                full_url = TRINITY_LINK + "/" + image_url
                 new_style = f"background-image:url({full_url})"
                 styles.remove(style)
                 styles.append(new_style)
@@ -102,25 +104,32 @@ def get_responsive_html(url):
             a_tag["href"] = TRINITY_LINK + "/" + href_attr
 
     # Fix tables
-    tables = html_soup.find_all("table")
-    for table in tables:
-        class_attr = table.get("class")
-        if class_attr:
-            table["class"] += " responsive"
-        else:
-            table["class"] = "responsive"
-
-        style_attr = table.get("style")
-        if style_attr:
-            del table["style"]
-
-        table_tags = table.find_all()
-        for tag in table_tags:
-            style_attr = tag.get("style")
-            if style_attr:
-                del tag["style"]
-            width_attr = tag.get("width")
-            if width_attr:
-                del tag["width"]
+    try:
+        dataframe = pd.read_html(url)
+        html_soup = fix_table(dataframe, html_soup)
+    except Exception as e:
+        print("ERROR:", e, url)
 
     return html_soup.prettify(formatter="html")
+
+
+def fix_table(dataframe, html_soup):
+    tables = html_soup.find_all("table")
+    for index, table in enumerate(tables):
+        table_dataframe = dataframe[index]
+        new_table_tag = prepare_table_from_dataframe(table_dataframe)
+        class_attr = new_table_tag.get("class")
+        print("GOt class attrs", class_attr)
+        new_table_tag["class"] = '' #class_attr.append("responsive")
+        table.replaceWith(new_table_tag)
+
+    return html_soup
+
+
+def prepare_table_from_dataframe(dataframe):
+    dataframe.columns = dataframe.iloc[0]
+    dataframe = dataframe.reindex(dataframe.index.drop(0))
+    dataframe = dataframe.set_index(['Date'])
+    new_table_html = dataframe.to_html()
+    new_table_tag = BS(new_table_html, features='lxml').table
+    return new_table_tag
