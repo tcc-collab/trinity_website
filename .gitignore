@@ -3,13 +3,11 @@
 *pyc
 *pycache*
 *vscode
-*vim*
+*.vim
 *swp
 *swo
 *swn
-*.lock*
 *.orig*
-*poetry*
 secrets*
 *.db*
 *.env

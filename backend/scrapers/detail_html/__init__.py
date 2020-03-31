@@ -65,7 +65,7 @@ def get_responsive_html(url):
                 last_num = list(filter(str.isdigit, size_part))[-1]
                 # 5 -> index=1,3 -> index=3 -> '15.5' -> 15.5 -> 15
                 size = int(float(size_part[: size_part.rfind(last_num) + 1]))
-                in_percentage = 100 / 10 * size
+                in_percentage = 100 / 16 * size
                 if in_percentage > 200:
                     in_percentage = 200
                 em_size_part = str(in_percentage) + "%"
