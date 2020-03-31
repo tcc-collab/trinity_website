@@ -11,8 +11,19 @@
 
     <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='tablesaw/dist/tablesaw.css')}}">
 
+    <script>
+	TablesawConfig = {
+		getColumnToggleLabelTemplate: function( text ) {
+			return "<label><input type='checkbox' checked><span>" + text + "</span></label>";
+		}
+	};
 
+	</script>
+   <script src="{{url_for('static',filename='tablesaw/dist/tablesaw.js')}}"></script>
+   <script src="{{url_for('static',filename='tablesaw/dist/tablesaw-init.js')}}"></script>
  </head>
 
   <body>
@@ -23,16 +34,9 @@
 
       {% endblock content %}
 
-
   {% include 'footer.html' %}
 
-
-   <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/main.css')}}">
    <script src="{{url_for('static',filename='scripts/jquery.min.js')}}"></script>
    <script src="{{url_for('static',filename='scripts/bootstrap.min.js')}}"></script>
-
-    <link type="text/css" media="screen" rel="stylesheet" href="{{url_for('static',filename='css/responsive-tables.css')}}" />
-    <script type="text/javascript" src="{{url_for('static',filename='js/responsive-tables.js')}}"></script>
-
   </body>
 </html>
