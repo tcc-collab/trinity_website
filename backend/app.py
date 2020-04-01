@@ -50,6 +50,26 @@ def get_layout_data(html):
     main_navs, nested_navs = get_navbar(html)
     return (main_navs, nested_navs, footer)
 
+@app.route("/detail")
+def detail():
+    html = get_html(cache=True)
+    main_navs, nested_navs, footer = get_layout_data(html)
+    link = request.args.get("link", "", type=str)
+    if not link:
+        pass
+
+    html = get_responsive_html(link)
+
+    return render_template(
+        "detail.html",
+        title="Trinity",
+        html=html,
+        main_navs=main_navs,
+        nested_navs=nested_navs,
+        footer=footer,
+    )
+
+
 
 @app.route("/notice")
 def notice():
@@ -60,7 +80,7 @@ def notice():
     if not link:
         pass
 
-    html = get_responsive_html(link)
+    html = get_responsive_notice(link)
 
     return render_template(
         "detail.html",
@@ -75,7 +95,7 @@ def notice():
 def news():
     html = get_html(cache=True)
     main_navs, nested_navs, footer = get_layout_data(html)
-    top_notices = get_top_notice(html)
+    top_notices = get_top_news(html)
     link = request.args.get("link", "", type=str)
     if not link:
         pass

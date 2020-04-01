@@ -14,11 +14,12 @@ TRINITY_LINK -> [str] URL of Trinity college, Dilibazar, Kathmandu
 __Functions__:
 get_html -> <requests.HTML> object
 """
+import os
 from pathlib import Path
 
 from requests_html import HTML, HTMLSession
 
-CACHE_DIR = "/home/h/trinity_website/backend/scrapers/cache/"
+CACHE_DIR = Path.home() / "cache/trinity_cache"
 TRINITY_LINK = "http://trinitycollege.edu.np/"
 
 
@@ -57,7 +58,9 @@ def __get_html_from_cache(url):
     }
 
     try:
-        index_file = Path(CACHE_DIR) / link_resource_map[url]
+        index_file = CACHE_DIR / link_resource_map[url]
+        if not index_file.exists():
+            os.makedirs(str(index_file.parent))
         with open(index_file, "r", encoding="utf-8") as rf:
             html_str = rf.read()
         html_soup = HTML(html=html_str, url=url)

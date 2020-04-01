@@ -1,3 +1,27 @@
+* {
+  margin-left:0.1em !important;
+}
+
+#content_head{
+  float : none !important;
+  max-width: 400px;
+  margin-bottom: 1em;
+}
+
+.MsoNormal{
+  font-size : 1.2em ;
+}
+
+#content_head{
+  float : none !important;
+  max-width: 400px;
+  margin-bottom: 1em;
+}
+
+div {
+  font-size : 1em !important;
+}
+
 .main-panel a{
   text-decoration: none;
   color:black;
@@ -7,13 +31,7 @@
   background-color:#f8af15 !important;
 }
 
-/*
-.container{
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-*/
+
 
 body {
   flex: 1;

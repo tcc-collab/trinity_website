@@ -36,11 +36,11 @@ def get_navbar(html):
 
     for nav_item in top_navs:
         nav_name = nav_item["name"].lower()
-        nav_item["id"] = "notice"
+        nav_item["id"] = "detail"
 
     for nav_group, nav_items in deep_navs.items():
         for nav_item in nav_items:
             nav_name = nav_item["name"].lower()
-            nav_item["id"] = "notice"
+            nav_item["id"] = "detail"
 
     return (top_navs, deep_navs)
