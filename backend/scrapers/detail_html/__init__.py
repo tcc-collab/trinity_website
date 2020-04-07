@@ -10,15 +10,6 @@ from bs4 import Comment
 
 from backend.scrapers import TRINITY_LINK, get_html
 
-def remove_style_recursively(divs):
-    for div in divs:
-        div['style'] = ''
-        if div.text and div.text.strip() == '·':
-            div.extract()
-        nested_divs = div.find_all('div')
-        if len(nested_divs) != 0:
-            remove_style_recursively(nested_divs)
-
 def get_responsive_notice(url):
     """
     Wrapper around scrapers package get_html that returns responsive
@@ -26,10 +17,10 @@ def get_responsive_notice(url):
     Returns -> [str] HTML
     Params => [str] URL
     """
-    html_soup = BS(get_responsive_html(url), features='lxml')
+    html_soup = BS(get_responsive_html(url, tags=['p', 'span']), features='lxml')
     # Fix MsoNormal divs (Notes div)
     msonormal_divs = html_soup.find_all('div', class_='MsoNormal')
-    remove_style_recursively(msonormal_divs)
+    recursively_remove_div_style(msonormal_divs)
 
     # Fix tables
     try:
@@ -42,14 +33,39 @@ def get_responsive_notice(url):
 
 
 def get_responsive_news(url):
-    pass
+    html_soup = BS(get_responsive_html(url, tags=['p', 'span']), features='lxml')
+    # Make font color white
+    all_font_tags = html_soup.find_all("font")
+    for font_tag in all_font_tags:
+        font_tag['color'] = 'white'
+    return html_soup.prettify(formatter="html")
 
 
-def get_responsive_events(url):
-    pass
+def get_responsive_event(url):
+    html_soup = BS(get_responsive_html(url), features='lxml')
+    parent_content_div = html_soup.find('div', class_='contain-mid-bg')
+    string = parent_content_div.find('div').span.a['title']
+    p_tag = html_soup.new_tag('p')
+    p_tag.string = string
+    parent_content_div.append(p_tag)
+    return html_soup.prettify(formatter="html")
+
+def get_responsive_hitml(url):
+    html_soup = BS(get_responsive_html(url, tags=['p']), features='lxml')
+    all_divs = html_soup.find_all('div')
+    recursively_remove_div_style(all_divs)
+    return html_soup.prettify(formatter="html")
 
 
-def get_responsive_html(url):
+def recursively_get_div_text(divs, string):
+    for div in divs:
+        string += div.text
+        nested_divs = div.find_all('div')
+        if len(nested_divs) > 0:
+            recursively_get_div_text(nested_divs, string)
+    return string
+
+def get_responsive_html(url, tags=None):
     """
     Wrapper around scrapers package get_html that returns responsive
     html from a url.
@@ -59,7 +75,6 @@ def get_responsive_html(url):
     html_obj = get_html(url, cache=False)
     # Get the downloadable item in left side
     content = html_obj.find("div#content", first=True)
-
     html_soup = BS(content.html, features="lxml")
 
     # Remove the comments in html
@@ -67,18 +82,18 @@ def get_responsive_html(url):
     for c in comments:
         c.extract()
 
-    # Make all ptags and span tags div
-    all_p_tags = html_soup.find_all("p")
-    for p_tag in all_p_tags:
-        p_tag.name = "div"
+    # Rename some tags to div
+    if not tags:
+        tags = ['p']
+    html_soup = rename_tags_to_div(html_soup, tags)
 
-    all_span_tags = html_soup.find_all("span")
-    for span_tag in all_span_tags:
-        span_tag.name = "div"
-
-    all_divs = html_soup.find_all("div")
+    # Remove all font color
+    all_font_tags = html_soup.find_all("font")
+    for font_tag in all_font_tags:
+        font_tag['color'] = ''
 
     # Remove the troubling width attr in style attr
+    all_divs = html_soup.find_all("div")
     for div in all_divs:
         style_attr = div.attrs.get("style")
         if not style_attr:
@@ -145,12 +160,14 @@ def get_responsive_html(url):
     html_soup = fix_table(html_soup)
     return html_soup.prettify(formatter="html")
 
+
 def fix_table(html_soup):
     tables = html_soup.find_all("table")
     for index, table in enumerate(tables):
         table['class'] = 'table'
         table['style'] = ''
     return html_soup
+
 
 def fix_notice_table(dataframe, html_soup):
     tables = html_soup.find_all("table")
@@ -179,6 +196,23 @@ def fix_notice_table(dataframe, html_soup):
             th.extract()
 
         table.replace_with(new_table_tag)
-
-
     return html_soup
+
+
+def rename_tags_to_div(html_soup, tags):
+    for tag_name in tags:
+        all_X_tags = html_soup.find_all(tag_name)
+        for tag in all_X_tags:
+            tag.name = 'div'
+    return html_soup
+
+
+def recursively_remove_div_style(divs):
+    for div in divs:
+        div['style'] = ''
+        if div.text and div.text.strip() == '·':
+            div.extract()
+        nested_divs = div.find_all('div')
+        if len(nested_divs) != 0:
+            recursively_remove_div_style(nested_divs)
+

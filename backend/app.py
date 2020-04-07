@@ -11,7 +11,7 @@ from backend.scrapers.detail_html import (
     get_responsive_html,
     get_responsive_notice,
     get_responsive_news,
-    get_responsive_events,
+    get_responsive_event,
 )
 
 
@@ -47,6 +47,7 @@ def home():
 
 def get_layout_data(html):
     footer = get_footer(html)
+    footer['detail_func'] = "detail"
     main_navs, nested_navs = get_navbar(html)
     return (main_navs, nested_navs, footer)
 
@@ -100,7 +101,7 @@ def news():
     if not link:
         pass
 
-    html = get_responsive_html(link)
+    html = get_responsive_news(link)
 
     return render_template(
         "detail.html",
@@ -120,7 +121,7 @@ def event():
     if not link:
         pass
 
-    html = get_responsive_html(link)
+    html = get_responsive_event(link)
 
     return render_template(
         "detail.html",

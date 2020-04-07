@@ -22,6 +22,10 @@ div {
   font-size : 1em !important;
 }
 
+.navbar-brand{
+  color: white !important;
+}
+
 .main-panel a{
   text-decoration: none;
   color:black;

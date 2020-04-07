@@ -28,7 +28,7 @@
                 <div class="eventtitle">
 
                   {% if item.link %}
-                  <a href="{{item.link}}">
+                  <a href="{{url_for(value.detail_func, link=item.link)}}">
                     {{ item.title }}
                   </a>
                   {% else %}

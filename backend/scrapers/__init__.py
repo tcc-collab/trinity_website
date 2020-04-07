@@ -19,9 +19,8 @@ from pathlib import Path
 
 from requests_html import HTML, HTMLSession
 
-CACHE_DIR = Path.home() / "cache/trinity_cache"
+CACHE_DIR = Path.home() / "dev/trinity_website/backend/scrapers/cache/trinity_cache"
 TRINITY_LINK = "http://trinitycollege.edu.np/"
-
 
 def get_html(url=TRINITY_LINK, cache=True, rendered=False):
     """
@@ -59,8 +58,6 @@ def __get_html_from_cache(url):
 
     try:
         index_file = CACHE_DIR / link_resource_map[url]
-        if not index_file.exists():
-            os.makedirs(str(index_file.parent))
         with open(index_file, "r", encoding="utf-8") as rf:
             html_str = rf.read()
         html_soup = HTML(html=html_str, url=url)
