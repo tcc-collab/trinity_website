@@ -9,6 +9,7 @@ from backend.scrapers.notice import get_all_notice, get_top_notice, notice_page_
 from backend.utils import get_navbar
 from backend.scrapers.detail_html import (
     get_responsive_html,
+    get_responsive_detail,
     get_responsive_notice,
     get_responsive_news,
     get_responsive_event,
@@ -59,11 +60,10 @@ def detail():
     if not link:
         pass
 
-    html = get_responsive_html(link)
-
+    html = get_responsive_detail(link)
     return render_template(
         "detail.html",
-        title="Trinity",
+        title="Welcome to Trinity International College",
         html=html,
         main_navs=main_navs,
         nested_navs=nested_navs,

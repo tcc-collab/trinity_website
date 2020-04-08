@@ -26,6 +26,11 @@ div {
   color: white !important;
 }
 
+.topmenu ul li.active a, .topmenu ul li a:hover {
+    text-decoration:none;
+    color:#fff;
+}
+
 .main-panel a{
   text-decoration: none;
   color:black;

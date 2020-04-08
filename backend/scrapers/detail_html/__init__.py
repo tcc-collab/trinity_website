@@ -50,7 +50,7 @@ def get_responsive_event(url):
     parent_content_div.append(p_tag)
     return html_soup.prettify(formatter="html")
 
-def get_responsive_hitml(url):
+def get_responsive_detail(url):
     html_soup = BS(get_responsive_html(url, tags=['p']), features='lxml')
     all_divs = html_soup.find_all('div')
     recursively_remove_div_style(all_divs)

@@ -10,11 +10,11 @@
           <a class="navbar-brand" href="#">Trinity Int'l College</a>
         </div>
 
-        <div class="collapse navbar-collapse" id="myNavbar">
+        <div class="collapse navbar-collapse topmenu" id="myNavbar">
           <ul class="nav navbar-nav">
             {% for nav_item in main_navs %}
               {% if nav_item.name == "Home" %}
-                <li class="active">
+                <li>
                   <a href="{{url_for('home')}}">
               {% else %}
                 <li>
@@ -38,10 +38,26 @@
                 </ul>
               </li>
             {% endfor %}
-
             </li>
           </ul>
         </div>
 
       </div>
     </nav>
+
+<script type="text/javascript">
+    $(function() {
+        // this will get the full URL at the address bar
+        var url = window.location.href;
+
+        // passes on every "a" tag
+        $(".topmenu a").each(function() {
+            // checks if its the same on the address bar
+            if (url == (this.href)) {
+                $(this).closest("li").addClass("active");
+                //for making parent of submenu active
+               $(this).closest("li").parent().parent().addClass("active");
+            }
+        });
+    });
+</script>
