@@ -2,56 +2,64 @@
 {%block content%}
 
   <div class="container">
-    {% for key, value in top_items.items() %}
-      <div class="panel panel-default">
-        <div class="notice panel-heading main-panel">
-            <a href="{{value.link}}">{{key}}</a>
-        </div>
-        {% for item in value.list %}
-          {%if key != "Events" %}
-            <div class="panel-body">
-              <a href="{{url_for(value.detail_func, link=item.full_link)}}">{{item.title}}</a>
-            </div>
-
-          {% else %}
-            <div class="panel-body">
-
-              <div class="withdate">
-                <div class="engname">
-                  {{item.english_date[-3:]}}
-                </div>
-                <div class="date"> {{item.english_date[:2]}}</div>
-                <div class="nepname">{{item.nepali_date}}</div>
+      {% for key, value in top_items.items() %}
+        <div class="panel panel-default">
+          <div class="notice panel-heading main-panel">
+              <a href="{{value.link}}">{{key}}</a>
+          </div>
+          {% for item in value.list %}
+            {%if key != "Events" %}
+              <div class="panel-body">
+                <a href="{{url_for(value.detail_func, link=item.full_link)}}">{{item.title}}</a>
               </div>
 
-	            <div class="withtitle">
-                <div class="eventtitle">
+            {% else %}
+              <div class="panel-body">
 
-                  {% if item.link %}
-                  <a href="{{url_for(value.detail_func, link=item.link)}}">
-                    {{ item.title }}
-                  </a>
-                  {% else %}
-                    {{ item.title }}
-                  {% endif %}
-
-                </div>
-                <p>
-                {{ item.subtitle }}
-                </p>
-                {% if item.description %}
-		              <div class="description">
-                    {{ item.description }}
+                <div class="withdate">
+                  <div class="engname">
+                    {{item.english_date[-3:]}}
                   </div>
-                {% endif %}
-	            </div>
+                  <div class="date"> {{item.english_date[:2]}}</div>
+                  <div class="nepname">{{item.nepali_date}}</div>
+                </div>
 
-            </div>
-          {%endif%}
-        {% endfor %}
-      </div>
-    {% endfor %}
+  	            <div class="withtitle">
+                  <div class="eventtitle">
 
+                    {% if item.link %}
+                    <a href="{{url_for(value.detail_func, link=item.link)}}">
+                      {{ item.title }}
+                    </a>
+                    {% else %}
+                      {{ item.title }}
+                    {% endif %}
+
+                  </div>
+                  <p>
+                  {{ item.subtitle }}
+                  </p>
+                  {% if item.description %}
+  		              <div class="description">
+                      {{ item.description }}
+                    </div>
+                  {% endif %}
+  	            </div>
+
+              </div>
+            {%endif%}
+          {% endfor %}
+        </div>
+      {% endfor %}
+
+    <div class="notice panel-heading main-panel">
+        <a href="#">Special Notice</a>
+    </div>
+
+    <div class='downloadable'>
+      <a class='special', href="{{ downloadable.left.link }}"> <img src='{{ downloadable.left.image }}'> {{ downloadable.left.caption }}</a>
+      <a class='special', href="{{ downloadable.right.link }}"> <img src='{{ downloadable.right.image }}'> {{ downloadable.right.caption }}</a>
+    </div>
   </div>
 {%endblock%}
 

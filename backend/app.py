@@ -37,9 +37,11 @@ def home():
     }
 
     main_navs, nested_navs, footer = get_layout_data(html)
+    downloadable = get_downloadable(html)
     return render_template(
         "home.html",
         top_items=top_items,
+        downloadable=downloadable,
         footer=footer,
         nested_navs=nested_navs,
         main_navs=main_navs,
