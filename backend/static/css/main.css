@@ -38,6 +38,10 @@ div {
   margin-bottom: 1em;
 }
 
+.asset {
+  width: 100%;
+}
+
 .main-panel a{
   text-decoration: none;
   color:black;
@@ -46,8 +50,6 @@ div {
 .panel-heading {
   background-color:#f8af15 !important;
 }
-
-
 
 body {
   flex: 1;

@@ -57,8 +57,11 @@
     </div>
 
     <div class='downloadable'>
-      <a class='special', href="{{ downloadable.left.link }}"> <img src='{{ downloadable.left.image }}'> {{ downloadable.left.caption }}</a>
-      <a class='special', href="{{ downloadable.right.link }}"> <img src='{{ downloadable.right.image }}'> {{ downloadable.right.caption }}</a>
+      <span class='asset'> <a href="{{ downloadable.left.link }}"> <img src='{{ downloadable.left.image }}'> {{ downloadable.left.caption }}</a>
+      </span>
+      <span class='asset'>
+      <a href="{{ downloadable.right.link }}"> <img src='{{ downloadable.right.image }}'> {{ downloadable.right.caption }}</a>
+    </span>
     </div>
   </div>
 {%endblock%}

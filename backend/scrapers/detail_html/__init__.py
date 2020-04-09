@@ -51,7 +51,7 @@ def get_responsive_event(url):
     return html_soup.prettify(formatter="html")
 
 def get_responsive_detail(url):
-    html_soup = BS(get_responsive_html(url, tags=['p']), features='lxml')
+    html_soup = BS(get_responsive_html(url), features='lxml')
     all_divs = html_soup.find_all('div')
     recursively_remove_div_style(all_divs)
     return html_soup.prettify(formatter="html")
@@ -95,6 +95,8 @@ def get_responsive_html(url, tags=None):
     # Remove the troubling width attr in style attr
     all_divs = html_soup.find_all("div")
     for div in all_divs:
+        div['height'] = ''
+        div['width'] = ''
         style_attr = div.attrs.get("style")
         if not style_attr:
             continue
