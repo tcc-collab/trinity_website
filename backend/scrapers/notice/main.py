@@ -1,6 +1,7 @@
 """
 Notice: main.py module
 """
+NOTICE_DIV = lambda soup: soup.find("div#menu_left")[1]
 
 
 def notice_page_link(html_soup):
@@ -8,10 +9,7 @@ def notice_page_link(html_soup):
     Returns -> [str] link of notice page.
     Params -> [requests.HTML object] HTML of web page.
     """
-    notice_div_xpath = "/html/body/div/div[2]/div[1]/div[6]/div"
-    # Container div with all top notices and p tag(at last) with more link
-    notice_div = html_soup.xpath(notice_div_xpath, first=True)
-
+    notice_div = NOTICE_DIV(html_soup)
     more_notices_p_tag = notice_div.find("p")[-1]
     more_notices_a_tag = more_notices_p_tag.find("a", first=True)
     more_notices_link = html_soup.url + more_notices_a_tag.attrs["href"]
@@ -27,9 +25,8 @@ def get_top_notice(html_soup):
 
     Params -> [requests.HTML object] HTML of web page.
     """
-    notice_div_xpath = "/html/body/div/div[2]/div[1]/div[6]/div"
     # Container div with all top notices
-    notice_div = html_soup.xpath(notice_div_xpath, first=True)
+    notice_div = NOTICE_DIV(html_soup)
 
     # list of divs containing notice title and link
     notices = notice_div.find("div.notic_text")
